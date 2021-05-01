@@ -51,6 +51,17 @@ baseq01 <- baseq01 %>%
 ###########################################################################################
 
 source("R/funcoes.R")
+
+var_demograficas <- c("sexo", "idadef", "escr", "rendafa")
+
+# relatorio de tabelas automatizado
+rmarkdown::render("R/tab_contigencia_relatorio.Rmd", params = list(
+  dados = baseq01,
+  var_demografica = var_demograficas,
+  var_voto = "voto1_cat"
+))
+
+# ou rodar idividualmente para cada variavel
 tabela_contig(dados = baseq01, sexo, voto1_cat)
 tabela_contig(dados = baseq01, idadef, voto1_cat)
 tabela_contig(dados = baseq01, escr, voto1_cat)

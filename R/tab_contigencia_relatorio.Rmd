@@ -1,0 +1,30 @@
+---
+title: "Tabelas de contigências"
+output: 
+  word_document:
+    reference_docx: tab_contigencia_template.docx
+params:
+  dados: "basedaods"
+  var_demografica: "vars"
+  var_voto: "voto"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(tidyr)
+library(forcats)
+```
+
+```{r tabs, echo=FALSE, results='asis'}
+for(i in params$var_demografica) {
+  
+  tab <- tabela_contig_var(dados = params$dados, i, params$var_voto)
+  print(knitr::kable(tab, caption = paste0("Tabela: ", i, " vs ", params$var_voto), digits = 2))
+  
+  cat("\n\n\\pagebreak\n")
+  
+}
+
+```
+

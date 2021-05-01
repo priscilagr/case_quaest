@@ -17,6 +17,9 @@ Este relatório contem as atividades do processo seletivo para a vaga de *Data S
 - _*R*_: diretório dedicado à armazenar arquivos do tipo .R com funções utilizadas nas atividades.
     + `funcoes.R`: função utilizada na tarefa 1;
     + `script.R`: comandos `R` para realização das atividades de forma sequencial.
+    +  `tab_contigencia_relatorio.Rmd`: relatorio automatizado para criação das tabelas de contigências.
+    + `tab_contigencia_template.docx`: template utilizado na criação do relatório de tabelas.
+    + `tab_contigencia_relatorio.docx`: saída do relatório de tabelas de contigência.
 - _*relatorio-files*_: diretório criado automaticamente para armazenar as figuras usadas no relatório.
 
 O arquivo _*relatorio.Rmd*_ é do tipo [rmarkdown](https://rmarkdown.rstudio.com/) que pode ser compilado para geração do relatório _*relatorio.md*_. Este formato é amplamente utilizado para reproduzir pesquisas e combinar códigos e textos em um mesmo arquivo. 
@@ -152,6 +155,20 @@ tabela_contig(dados = baseq01, rendafa, voto1_cat) %>%
 A Tabela 4 mostra que o candidato 2 apresenta maior percentual de intenção de voto, sendo esse percentual maior entre os eleitores com renda de até 5 SM. 
 Já os candidatos 1 e 8 possuem maior percentual de intenção de voto entre os eleitores com renda familiar na faixa entre 5 SM até 10 SM.
 
+### Geração automática das tabelas de contigência
+
+O script abaixo gera um documento em Word no diretório R com as tabelas de contigência. O usuário pode definir para quais variáveis serão construídas as tabelas (`var_demograficas`). Para ver o resultado acesse `R/tab_contigencia_relatorio.docx`.
+
+```{r tab_relatorio, eval=FALSE, include=TRUE}
+var_demograficas <- c("sexo", "idadef", "escr", "rendafa")
+
+# relatorio de tabelas automatizado
+rmarkdown::render("R/tab_contigencia_relatorio.Rmd", params = list(
+  dados = baseq01,
+  var_demografica = var_demograficas,
+  var_voto = "voto1_cat"
+))
+```
 
 
 ## Questão 2
