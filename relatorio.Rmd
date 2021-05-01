@@ -1,15 +1,9 @@
 ---
 title: "Avaliação técnica — Quaest, Data Scientist Jr."
-author: Priscila Gregorio Bernardo
+author: "Priscila Gregorio Bernardo<br>"
 date: "Maio 2021"
 output: github_document
 ---
-
-<style>
-body {
-text-align: justify}
-</style>
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

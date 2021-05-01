@@ -1,12 +1,8 @@
 Avaliação técnica — Quaest, Data Scientist Jr.
 ================
-Priscila Gregorio Bernardo
+Priscila Gregorio Bernardo<br>
 Maio 2021
 
-<style>
-body {
-text-align: justify}
-</style>
 ### Descrição
 
 Este relatório contem as atividades do processo seletivo para a vaga de *Data Scientist Jr* da empresa *Quaest*. Abaixo descrevo a estrutura do repositório:
